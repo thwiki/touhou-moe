@@ -1,0 +1,25 @@
+{
+	"name": "touhou-moe",
+	"version": "1.0.0",
+	"description": "TouhouMoe Domain",
+	"type": "module",
+	"scripts": {
+		"setup": "vercel login && vercel link",
+		"start": "vercel dev",
+		"deploy": "vercel deploy --prod",
+		"dev": "npm run start"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/thwiki/touhou-moe.git"
+	},
+	"author": "arumi@thwiki.cc",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/thwiki/touhou-moe/issues"
+	},
+	"homepage": "https://touhou.moe",
+	"dependencies": {
+		"vercel": "^28.16.8"
+	}
+}

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="./style/common.css" />
+		<link rel="stylesheet" href="./image/icon/iconfont.css" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<title>魅知幻想歌谣会5G版2020·上海场 专辑购买页</title>
+	</head>
+
+	<body>
+		<div class="mobile-header">
+			<div class="logo"><img src="./image/utklogo.png" /></div>
+			<a class="right mobile-header-menu" href="javascript:;"><i class="icon icon-menu"></i></a>
+		</div>
+		<div class="sidebar">
+			<div class="background">
+				<img class="person" id="person-img" src="#" />
+			</div>
+			<div class="content">
+				<div class="logo"><img src="./image/utklogo.png" /></div>
+				<div class="nav"><a>魅知幻想歌谣会5G版2020·上海场 专辑购买页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></div>
+			</div>
+		</div>
+		<script src="./script/zepto.js"></script>
+		<script src="./script/zepto.fx.js"></script>
+		<script src="./script/zepto.scroll.js"></script>
+		<script src="./script/common.js"></script>
+		<div class="main">
+			<div class="page-index">
+				<div class="page-title">
+					<h1>魅知幻想歌谣会5G版2020·上海场 专辑购买页</h1>
+				</div>
+				<div class="ch booth-page">
+					<div class="container" id="app">
+						<h2 :style="'display: none'">Loading...</h2>
+						<div class="booth-page-inner" :style="'opacity: 1'">
+							<div class="booth-nav">
+								<h4>快速跳转</h4>
+								<a class="button" v-for="section in sectionList" @click="gotoSection(section)" href="javascript:;">{{section}}</a>
+							</div>
+							<div
+								class="booth-info"
+								class="item"
+								v-for="boothSection in boothData"
+								:key="boothSection.groupName"
+								:data-section="boothSection.groupName ? boothSection.groupName : ''"
+							>
+								<div class="booth-section-box" v-pin>
+									<h2>{{boothSection.groupName}}</h2>
+									<p>{{boothSection.groupDescription}}</p>
+								</div>
+								<div
+									class="booth-category"
+									v-for="boothCategory in boothSection.boothsCategory"
+									:style="boothCategory.color ? 'border-left-color:'+boothCategory.color : ''"
+								>
+									<h3 class="booth-category-title" v-if="boothCategory.name" :style="boothCategory.textColor ? 'color:'+boothCategory.textColor : ''">
+										{{boothCategory.name}}
+									</h3>
+									<div class="booth-list">
+										<div class="item" v-for="booth in boothCategory.booths" :key="booth.name">
+											<a :href="booth.link">
+												<img v-if="booth.img" :src="booth.img" />
+												<p class="name">{{booth.name}}</p>
+												<div class="booth-tag" v-if="booth.tags">
+													<span v-for="tag in booth.tags">{{tag}}</span>
+												</div>
+												<p class="description">{{booth.description}}</p>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<script src="./script/vue.min.js"></script>
+				<script>
+					var v = new Vue({
+						el: "#app",
+						data: {
+							boothData: [],
+							sectionList: [],
+						},
+						watch: {
+							boothData: function () {
+								this.sectionList = this.boothData.map((i) => i.groupName);
+							},
+						},
+						methods: {
+							gotoSection: function (section) {
+								console.log("goto section ", section);
+
+								$("html,body").scrollTo({
+									toT: $("[data-section=" + section + "]").offset().top,
+									durTime: 500,
+									delay: 10,
+								});
+							},
+						},
+					});
+
+					v.boothData = [
+						{
+							groupName: "幻想诗篇XanaduCanto",
+							boothsCategory: [
+								{
+									name: "",
+									color: "#66ccff",
+									booths: [
+										{
+											img: "./image/live cd/xadadu/cd1.jpg",
+											name: "三叶草之歌",
+											link: "https://www.dizzylab.net/albums/label/%E5%B9%BB%E6%83%B3%E8%AF%97%E7%AF%87%20Xanadu%20Canto/",
+										},
+										{
+											img: "./image/live cd/xadadu/cd2.jpg",
+											name: "月华缭乱",
+											link: "https://www.dizzylab.net/albums/label/%E5%B9%BB%E6%83%B3%E8%AF%97%E7%AF%87%20Xanadu%20Canto/",
+										},
+									],
+								},
+							],
+						},
+						{
+							groupName: "bunnyrhyTHm",
+							boothsCategory: [
+								{
+									name: "",
+									textColor: "#7588ba",
+									color: "#66ccff",
+									booths: [
+										{ img: "./image/live cd/bunny rhyTHm/cd1.jpg", name: "幻想往昔とすれ違う夢", link: "https://t.bilibili.com/414774341924895334?tab=2" },
+										{ img: "./image/live cd/bunny rhyTHm/cd2.jpg", name: "歌于绯想 剑问真情", link: "https://t.bilibili.com/414774341924895334?tab=2" },
+										{ img: "./image/live cd/bunny rhyTHm/cd3.jpg", name: "紅蓮の夕嵐", link: "https://t.bilibili.com/414774341924895334?tab=2" },
+										{ img: "./image/live cd/bunny rhyTHm/cd4.jpg", name: "kiRa☆rhyTHm", link: "https://t.bilibili.com/414774341924895334?tab=2" },
+									],
+								},
+							],
+						},
+						{
+							groupName: "烟霞",
+							groupDescription: "",
+							boothsCategory: [
+								{
+									name: "",
+									color: "#66ccff",
+									booths: [
+										{ img: "./image/live cd/enka/cd1.jpg", name: "博麗歌暦華伝", link: "https://shop239106082.taobao.com/" },
+										{ img: "./image/live cd/enka/cd2.jpg", name: "楓葉経霜紅", link: "https://shop239106082.taobao.com/" },
+									],
+								},
+							],
+						},
+						{
+							groupName: "痕",
+							groupDescription: "",
+							boothsCategory: [{ name: "", color: "#66ccff", booths: [{ img: "./image/live cd/kizu/cd1.jpg", name: "失忆症Amnesia", link: "" }] }],
+						},
+						{
+							groupName: "DualInsomiNa",
+							groupDescription: "",
+							boothsCategory: [
+								{
+									name: "",
+									color: "#66ccff",
+									booths: [
+										{
+											img: "./image/live cd/DualInsomiNa/cd1.jpg",
+											name: "HELIX",
+											link: "https://shop380107107.taobao.com/?spm=a230r.7195193.1997079397.2.1a1735daPxoWfr",
+										},
+										{
+											img: "./image/live cd/DualInsomiNa/cd2.jpg",
+											name: "海芋花",
+											link: "https://shop380107107.taobao.com/?spm=a230r.7195193.1997079397.2.1a1735daPxoWfr",
+										},
+										{
+											img: "./image/live cd/DualInsomiNa/cd3.jpg",
+											name: "Phantasm",
+											link: "https://shop380107107.taobao.com/?spm=a230r.7195193.1997079397.2.1a1735daPxoWfr",
+										},
+									],
+								},
+							],
+						},
+						{
+							groupName: "Romero",
+							groupDescription: "",
+							boothsCategory: [
+								{
+									name: "",
+									color: "#66ccff",
+									booths: [
+										{ img: "./image/live cd/Romero/cd1.jpg", name: "絵空イマジナリー", link: "https://m.tb.cn/h.VJZT3da?sm=46200f" },
+										{
+											img: "./image/live cd/Romero/cd2.jpg",
+											name: "TBK BEST COLLECTION VOL.1精选集 〜二色転一〜",
+											link: "https://item.taobao.com/item.htm?spm=2013.1.w4004-21943176898.18.2028a2b0hGRcxJ&id=609617796413",
+										},
+									],
+								},
+							],
+						},
+						{
+							groupName: "YonderVoice",
+							groupDescription: "",
+							boothsCategory: [
+								{
+									name: "",
+									color: "#66ccff",
+									booths: [
+										{ img: "./image/live cd/Yonder Voice/cd1.jpg", name: "星月トラジコメディー", link: "https://t.bilibili.com/414774341924895334?tab=2" },
+										{ img: "./image/live cd/Yonder Voice/cd2.jpg", name: "絶景エピローグ", link: "https://t.bilibili.com/414774341924895334?tab=2" },
+										{ img: "./image/live cd/Yonder Voice/cd3.jpg", name: "偶像ハルマゲドン", link: "https://t.bilibili.com/414774341924895334?tab=2" },
+										{
+											img: "./image/live cd/Yonder Voice/cd4.jpg",
+											name: "碧キ泡沫ノアリア ～ Piano Arrange Collection Vol.2",
+											link: "https://t.bilibili.com/414774341924895334?tab=2",
+										},
+										{ img: "./image/live cd/Yonder Voice/cd5.jpg", name: "奏穹のラプソディア", link: "https://t.bilibili.com/414774341924895334?tab=2" },
+									],
+								},
+							],
+						},
+					];
+				</script>
+				<script>
+					setPersonImg("./image/b/marisa.png");
+				</script>
+			</div>
+		</div>
+	</body>
+</html>
