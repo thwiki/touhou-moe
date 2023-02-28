@@ -37,5 +37,6 @@
 			"source": "/(.*)\\.(jpg|jpeg|gif|png|ico|cur|svg|svgz|mp4|ogg|ogv|webm|htc)",
 			"headers": [{ "key": "Cache-Control", "value": "public, max-age=31556952, s-maxage=31556952" }]
 		}
-	]
+	],
+	"trailingSlash": true
 }
